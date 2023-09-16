@@ -66,12 +66,65 @@ body {
   padding-left: 20px; /* Add left padding to indent the <span> elements */
 }
 
+
+/* Style for the collapsible banner */
+.banner {
+  background-color: #f1f1f1;
+  padding: 10px;
+  border-left: 6px solid #4CAF50; /* Green color for the bullet point */
+  cursor: pointer;
+}
+
+.banner-content {
+  display: none;
+  padding-left: 20px; /* Add left padding to indent the content */
+}
 </style>
 </head>
 <body>
 
+
 <h2>Kinder Events</h2>
 <p></p>
+
+<!-- Banner for Fall Funds event -->
+<div class="banner" onclick="toggleContent('fallFunds')">Fall Funds</div>
+<div class="banner-content" id="fallFunds">
+  <p>Fall Funds Event Details:</p>
+  <ul>
+    <li>Asking each scholar to contribute $45 to $55 per semester</li>
+    <li>Venmo: @KatherinePalaciosMoreno</li>
+    <li>Zelle: (305) 582-3517</li>
+	<li><a target="_blank" href="docs/fall_funds.txt" download>Fall Fund Details</a></li>
+     
+    </ul>
+</div>
+
+<div class="row">
+  <!-- Rest of your event cards go here -->
+</div>
+
+<!-- JavaScript to toggle the banner content -->
+<script>
+function toggleContent(id) {
+  var content = document.getElementById(id);
+  if (content.style.display === "block") {
+    content.style.display = "none";
+  } else {
+    content.style.display = "block";
+  }
+}
+</script>
+
+</body>
+</html>
+
+  </ul>
+</div>
+
+
+<!-- event cards go here -->
+
 
 <div class="row">
   <div class="column">
@@ -200,5 +253,21 @@ body {
     </div>
   </div> 
  
+ 
+ 
+ <!-- JavaScript to toggle the banner content -->
+<script>
+function toggleContent(id) {
+  var content = document.getElementById(id);
+  if (content.style.display === "block") {
+    content.style.display = "none";
+  } else {
+    content.style.display = "block";
+  }
+}
+</script>
+
+
+
 </body>
 </html>
