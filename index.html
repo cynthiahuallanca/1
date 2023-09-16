@@ -1,129 +1,89 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kindergarten Events</title>
-	 
-    <style>
-        body {
-            background-color: #f3f3f3; /* Light gray background color */
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-        header {
-            background-color: #007BFF; /* Blue header background color */
-            color: #fff; /* White text color */
-            text-align: center;
-            padding: 20px;
-        }
-        section {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #fff; /* White background color for the content section */
-            border-radius: 10px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Box shadow for a card-like effect */
-        }
-        ul {
-            list-style-type: none;
-            padding: 0;
-        }
-        li {
-            margin-bottom: 10px;
-        }
-        footer {
-            background-color: #007BFF; /* Blue footer background color */
-            color: #fff; /* White text color */
-            text-align: center;
-            padding: 10px;
-        }
-    </style>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Float four columns side by side */
+.column {
+  float: left;
+  width: 25%;
+  padding: 0 10px;
+}
+
+/* Remove extra left and right margins, due to padding */
+.row {margin: 0 -5px;}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive columns */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+  }
+}
+
+/* Style the counter cards */
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 16px;
+  text-align: center;
+  background-color: #f1f1f1;
+}
+</style>
 </head>
 <body>
-    <header>
-        <h1>Kindergarten Reminders</h1>
-		<p>A reminder page for parents</p>
-    </header>
-    
-    <section id="reminders">
-        <h2>Due date Reminders</h2>
-		<h3> - History test, Monday 9/18 </h3>
-        <ul>
-            <li>Watch this <a href="https://www.youtube.com/watch?feature=shared&v=zYxC14pCaJ0">YouTube video</a> for help.</li>
-            <li> <a href="docs/test1.jpeg" download>test1.jpeg</a> image for reference.</li>
-			<li><a href="docs/test2.jpeg" download>test2.jpeg</a> image for reference.</li> 
-		</ul>
-	
-		<h3> - Tues. 09/19 </h3>
-		  <ul>
-            <li> Last day to place lunch orders for the following week.</li>
-       </ul>
-      
-		<h3> - Wed. 09/20 </h3>
-		  <ul>
-            <li> iReady AP1 Math Assessment </li>
-       </ul>
-	   
-	   <h3> - Thurs. 09/21 </h3>
-		  <ul>
-            <li> Ella’s Birthday</li>
-	
-       </ul>
-	   
-	   <h3> - Fri. 09/22 </h3>
-		  <ul>
-            <li> Q1 Progress Reports</li>
-			
-       </ul>
-	   
-	   <h3> - Sat. 09/23 </h3>
-		  <ul>
-            <li> Dash of the Titans</li>
-       </ul>
-	   
-	   <h3> - Sun. 09/24 </h3>
-		  <ul>
-            <li> Last day to complete IXL for the week of 09/18.</li>
-       </ul>
-	   
-	   <h3> -  Mon. 09/25 </h3>
-		  <ul>
-            <li>No School/Teacher Planning Day </li>
-       </ul>
-	   
-	   <h3> - Tues. 09/26  </h3>
-		  <ul>
-            <li>  Last day to place lunch orders for the following week.</li>
-			<li></li>
-			<li></li>
-       </ul>
-	   
-	   <h3> - Sunday 10/01 3pm, Continental Park Play Date </h3>
-        <ul>
-            <li>Bring a sharable</li>
-			<li>10000 sw 82 ave miami, 33156</li>
-       </ul>
-	   
-	</section>
-    
-    <!-- You can include more content here -->
-    
-	<section id="reminders">
-        <h2>Others</h2>
-		<h3> - Fall Semester Class Fund </h3>
-        <ul>
-            <li>Each scholar asked contribution: between $45 - $55 </li>
-            <li>Venmo: @KhaterinePalaciosMoreno</li>
-			<li>Zelle:(305)582-3517 </li>
-        </ul>
-		
-       </ul>
-    </section>
-	
-    <footer>
-        <p>&copy; 2023 YourWebsite.com</p>
-    </footer>
+
+<h2>Responsive Column Cards</h2>
+<p>Resize the browser window to see the effect.</p>
+
+<div class="row">
+  <div class="column">
+    <div class="card">
+      <h3>Card 1</h3>
+      <p>Some text</p>
+      <p>Some text</p>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+      <h3>Card 2</h3>
+      <p>Some text</p>
+      <p>Some text</p>
+    </div>
+  </div>
+  
+  <div class="column">
+    <div class="card">
+      <h3>Card 3</h3>
+      <p>Some text</p>
+      <p>Some text</p>
+    </div>
+  </div>
+  
+  <div class="column">
+    <div class="card">
+      <h3>Card 4</h3>
+      <p>Some text</p>
+      <p>Some text</p>
+    </div>
+  </div>
+</div>
+
 </body>
 </html>
