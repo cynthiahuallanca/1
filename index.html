@@ -11,6 +11,7 @@
             color: #333;
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
         }
         header {
             background-color: #6a1b9a;
@@ -31,7 +32,7 @@
         }
         .container {
             padding: 2em;
-            padding-bottom: 6em; /* Increased padding to make space for the fixed footer */
+            padding-bottom: 8em; /* Increased space for footer */
         }
         .section-title {
             color: #6a1b9a;
@@ -52,7 +53,7 @@
             position: fixed;
             bottom: 0;
             width: 100%;
-            z-index: 10; /* Ensure footer stays below dropdowns */
+            z-index: 100; /* Ensure footer is above other content */
         }
         .week-selector, .download-selector {
             margin-bottom: 1em;
@@ -60,8 +61,8 @@
         .week-selector select, .download-selector select {
             padding: 0.5em;
             font-size: 1em;
-            z-index: 20; /* Ensure dropdown is above footer */
-            position: relative; /* Required for z-index to work */
+            position: relative; /* Required for dropdown positioning */
+            z-index: 10; /* Ensure dropdown is below footer */
         }
         .week, .download {
             display: none;
