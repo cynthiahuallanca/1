@@ -55,16 +55,16 @@
             width: 100%;
             z-index: 100; /* Ensure footer is above other content */
         }
-        .week-selector, .download-selector {
+        .week-selector {
             margin-bottom: 1em;
         }
-        .week-selector select, .download-selector select {
+        .week-selector select {
             padding: 0.5em;
             font-size: 1em;
             position: relative; /* Required for dropdown positioning */
             z-index: 10; /* Ensure dropdown is below footer */
         }
-        .week, .download {
+        .week {
             display: none;
         }
         @media (max-width: 600px) {
@@ -84,34 +84,26 @@
             // Add more week data as needed
         ];
 
-        function showSection(section, type) {
-            const allSections = document.querySelectorAll(`.${type}`);
-            if (section === 'all') {
-                allSections.forEach(s => s.style.display = 'block');
+        function showWeek(week) {
+            const allWeeks = document.querySelectorAll('.week');
+            allWeeks.forEach(w => w.style.display = 'none');
+            if (week === 'all') {
+                allWeeks.forEach(w => w.style.display = 'block');
             } else {
-                allSections.forEach(s => s.style.display = 'none');
-                document.getElementById(section).style.display = 'block';
+                document.getElementById(week).style.display = 'block';
             }
         }
 
-        function populateSections() {
+        function populateWeeks() {
             const weekSelect = document.getElementById('week');
-            const downloadSelect = document.getElementById('download');
             const weeklyInfoContainer = document.getElementById('weekly-info-container');
-            const downloadsList = document.getElementById('downloads-list');
 
             weekData.reverse().forEach(week => {
-                // Add to Weekly Info dropdown
-                const weekOption = document.createElement('option');
-                weekOption.value = week.id;
-                weekOption.textContent = `${week.id.toUpperCase()} (${week.start} - ${week.end})`;
-                weekSelect.appendChild(weekOption);
-
-                // Add to Downloads dropdown
-                const downloadOption = document.createElement('option');
-                downloadOption.value = week.id;
-                downloadOption.textContent = `${week.id.toUpperCase()} (${week.start} - ${week.end})`;
-                downloadSelect.appendChild(downloadOption);
+                // Add to dropdown
+                const option = document.createElement('option');
+                option.value = week.id;
+                option.textContent = `${week.id.toUpperCase()} (${week.start} - ${week.end})`;
+                weekSelect.appendChild(option);
 
                 // Add weekly info cards
                 const weekCard = document.createElement('div');
@@ -124,31 +116,16 @@
                     <p><strong>Announcements:</strong> ${week.announcements}</p>
                 `;
                 weeklyInfoContainer.appendChild(weekCard);
-
-                // Add to Downloads
-                const downloadItem = document.createElement('li');
-                downloadItem.className = 'download';
-                downloadItem.id = week.id;
-                downloadItem.innerHTML = `
-                    <a href="path_to_file_${week.id}.pdf" download>
-                        ${week.id.toUpperCase()} (${week.start} - ${week.end})
-                    </a>
-                `;
-                downloadsList.appendChild(downloadItem);
             });
 
             // Show the most recent week by default
-            showSection(weekData[0].id, 'week');
-            showSection(weekData[0].id, 'download');
+            showWeek(weekData[0].id);
         }
 
         window.onload = function() {
-            populateSections();
+            populateWeeks();
             document.getElementById('week').onchange = function() {
-                showSection(this.value, 'week');
-            };
-            document.getElementById('download').onchange = function() {
-                showSection(this.value, 'download');
+                showWeek(this.value);
             };
         }
     </script>
@@ -161,7 +138,6 @@
         <a href="#home">Home</a>
         <a href="#calendar">Calendar</a>
         <a href="#weekly-info">Weekly Info</a>
-        <a href="#downloads">Downloads</a>
     </nav>
     <div class="container" id="home">
         <h2 class="section-title">Welcome</h2>
@@ -175,25 +151,13 @@
         <h2 class="section-title">Weekly Information</h2>
         <div class="week-selector">
             <label for="week">Select Week:</label>
-            <select id="week">
+            <select id="week" onchange="showWeek(this.value)">
                 <option value="all">All Weeks</option>
             </select>
         </div>
         <div id="weekly-info-container">
             <!-- Weekly info cards will be populated here by JavaScript -->
         </div>
-    </div>
-    <div class="container" id="downloads">
-        <h2 class="section-title">Downloads</h2>
-        <div class="download-selector">
-            <label for="download">Select Week:</label>
-            <select id="download">
-                <option value="all">All Weeks</option>
-            </select>
-        </div>
-        <ul id="downloads-list">
-            <!-- Download links will be populated here by JavaScript -->
-        </ul>
     </div>
     <footer>
         <p>&copy; 2024 1st Grade Class Information</p>
