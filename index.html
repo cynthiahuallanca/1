@@ -92,6 +92,7 @@
         function populateWeeks() {
             const weekSelect = document.getElementById('week');
             const weeklyInfoContainer = document.getElementById('weekly-info-container');
+            const downloadsList = document.getElementById('downloads-list');
 
             weekData.reverse().forEach(week => {
                 // Add to dropdown
@@ -111,6 +112,15 @@
                     <p><strong>Announcements:</strong> ${week.announcements}</p>
                 `;
                 weeklyInfoContainer.appendChild(weekCard);
+
+                // Add to downloads
+                const downloadItem = document.createElement('li');
+                downloadItem.innerHTML = `
+                    <a href="path_to_file_${week.id}.pdf" download>
+                        ${week.id.toUpperCase()} (${week.start} - ${week.end})
+                    </a>
+                `;
+                downloadsList.appendChild(downloadItem);
             });
 
             // Show the most recent week by default
@@ -154,9 +164,8 @@
     </div>
     <div class="container" id="downloads">
         <h2 class="section-title">Downloads</h2>
-        <ul>
-            <li><a href="path_to_file.pdf" download>Weekly Sight Words - Week 1</a></li>
-            <!-- Add more download links as needed -->
+        <ul id="downloads-list">
+            <!-- Download links will be populated here by JavaScript -->
         </ul>
     </div>
     <footer>
