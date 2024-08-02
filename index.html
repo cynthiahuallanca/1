@@ -1,285 +1,105 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-* {
-  box-sizing: border-box;
-}
-
-body {
-  font-family: Arial, Helvetica, sans-serif;
-  background-image: url('back.jpg'); /* Add your background image here */
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-blur: 5px; /* Apply a blur effect to the background */
-}
-
-/* Float four columns side by side */
-.column {
-  float: left;
-  width: 25%;
-  padding: 0 10px;
-}
-
-/* Remove extra left and right margins, due to padding */
-.row {margin: 0 -5px;}
-
-/* Clear floats after the columns */
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-/* Responsive columns */
-@media screen and (max-width: 600px) {
-  .column {
-    width: 100%;
-    display: block;
-    margin-bottom: 20px;
-  }
-}
-
-/* Style the counter cards */
-.card {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  padding: 16px;
-  text-align: center;
-  background-color: rgba(255, 255, 255, 0.5); /* Set the background color to translucent white (50% opacity) */
-}
-
-/* Align text within the card to the left */
-.card li {
-  text-align: left;
-}
-
-/* Style the <span> elements inside the cards */
-.card ul li {
-  position: relative; /* Create a positioning context for the <span> elements */
-}
-
-.card ul li span {
-  display: block;
-  text-align: left; /* Align the <span> to the left */
-  padding-left: 20px; /* Add left padding to indent the <span> elements */
-}
-
-
-/* Style for the collapsible banner */
-.banner {
-  background-color: #f1f1f1;
-  padding: 10px;
-  border-left: 6px solid #4CAF50; /* Green color for the bullet point */
-  cursor: pointer;
-}
-
-.banner-content {
-  display: none;
-  padding-left: 20px; /* Add left padding to indent the content */
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1st Grade Class Information</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #6a1b9a;
+            color: white;
+            padding: 1em;
+            text-align: center;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #4a148c;
+            padding: 0.5em;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 1em;
+        }
+        .container {
+            padding: 2em;
+        }
+        .section-title {
+            color: #6a1b9a;
+            margin-top: 0;
+        }
+        .card {
+            background-color: white;
+            padding: 1em;
+            margin-bottom: 1em;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        footer {
+            background-color: #6a1b9a;
+            color: white;
+            text-align: center;
+            padding: 1em;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        @media (max-width: 600px) {
+            nav {
+                flex-direction: column;
+                align-items: center;
+            }
+            nav a {
+                margin: 0.5em 0;
+            }
+        }
+    </style>
 </head>
 <body>
-
-
-<h2>Kinder Events</h2>
-<p></p>
-
-<!-- Banner for Fall Funds event -->
-<div class="banner" onclick="toggleContent('fallFunds')">Fall Funds</div>
-<div class="banner-content" id="fallFunds">
-  <p>Fall Funds Event Details:</p>
-  <ul>
-    <li>Asking each scholar to contribute $45 to $55 per semester</li>
-    <li>Venmo: @KatherinePalaciosMoreno</li>
-    <li>Zelle: (305) 582-3517</li>
-	<li><a target="_blank" href="docs/fall_funds.txt" download>Fall Fund Details</a></li>
-     
-    </ul>
-</div>
-
-<div class="row">
-  <!-- Rest of your event cards go here -->
-</div>
-
-<!-- JavaScript to toggle the banner content -->
-<script>
-function toggleContent(id) {
-  var content = document.getElementById(id);
-  if (content.style.display === "block") {
-    content.style.display = "none";
-  } else {
-    content.style.display = "block";
-  }
-}
-</script>
-
-</body>
-</html>
-
-  </ul>
-</div>
-
-
-<!-- event cards go here -->
-
-
-<div class="row">
-  <div class="column">
-    <div class="card">
-      <h3> Monday 9/18</h3>
-	  
-	  <ul>
-      <li>History Test </li>
-	   <span><a target="_blank"  href="https://www.youtube.com/watch?feature=shared&v=zYxC14pCaJ0">Watch Video</a></span>
-       <span>,<a  target="_blank" href="docs/test1.jpeg" download>test1</a></span>
-	   <br>
-	   <li2>,<a  target="_blank" href="docs/test2.jpeg" download>test2</a></span> 
-    <li> Sight words test (you, look, we, but, not) </li>
-    <li> New Sight words: away, blue, find, play, for </li>
-	  </ul>
-	</div>
-  </div>
-
-  <div class="column">
-    <div class="card">
-      <h3>Tues. 09/19 </h3>
-      <li>Last day to place lunch orders </li>
-      <!-- <p>Some text</p>-->
+    <header>
+        <h1>1st Grade Class Information</h1>
+    </header>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#weekly-info">Weekly Info</a>
+        <a href="#calendar">Calendar</a>
+        <a href="#downloads">Downloads</a>
+    </nav>
+    <div class="container" id="home">
+        <h2 class="section-title">Welcome</h2>
+        <p>Welcome to the 1st Grade Class Information page. Here you will find all the important updates and information for the school year.</p>
     </div>
-  </div>
-  
-  <div class="column">
-    <div class="card">
-      <h3>Wed. 09/20</h3>
-      <li> iReady AP1 Math Assessment </li>
-      <li> Handwriting assessment Aa-Zz </li></li>
+    <div class="container" id="weekly-info">
+        <h2 class="section-title">Weekly Information</h2>
+        <div class="card">
+            <h3>Week 1</h3>
+            <p><strong>Daily Tests:</strong> Math test on Monday, Spelling test on Wednesday.</p>
+            <p><strong>Weekly Sight Words:</strong> apple, banana, cherry</p>
+            <p><strong>Announcements:</strong> Please bring a water bottle to class every day.</p>
+        </div>
+        <!-- Add more weekly cards as needed -->
     </div>
-  </div>
-  
-  <div class="column">
-    <div class="card">
-      <h3>Thurs. 09/21</h3>
-      <li> Ella’s Birthday</li>
+    <div class="container" id="calendar">
+        <h2 class="section-title">Calendar</h2>
+        <iframe src="https://calendar.google.com/calendar/embed?src=your_calendar_id&ctz=your_timezone" style="border: 0" width="100%" height="600" frameborder="0" scrolling="no"></iframe>
     </div>
-  </div>
- </div>
- 
- <!--- Row 2 --->
- <div class="row">
-<div class="row" style="padding-bottom: 20px;">  <!-- to add more space -->
- 
-  <div class="column">
-    <div class="card">
-      <h3>Fri. 09/22</h3>
-	    <li> Cold Stone Creamery. 🍨 CASH ONLY ($6 for size Small w/1 topping) ($7 for size Large w/1 topping) </li>
-	    <li> Q1 Progress Reports</li>
-	    <li> Poem recitation </li>
-	    <li> Chapter 3. History test </li>
+    <div class="container" id="downloads">
+        <h2 class="section-title">Downloads</h2>
+        <ul>
+            <li><a href="path_to_file.pdf" download>Weekly Sight Words - Week 1</a></li>
+            <!-- Add more download links as needed -->
+        </ul>
     </div>
-  </div>
-  
-  <div class="column">
-    <div class="card">
-	   <h3> Sat. 09/23</h3>
-	   <li> <span><a target="_blank"  href="https://runsignup.com/Race/FL/Miami/TitanTrot5KWalkRun">Dash of the Titans</a></span></li>
-      
-	
-    </div>
-  </div>
-  
-  <div class="column">
-    <div class="card">
-      <h3>Sun. 09/24</h3>
-      <li> Last day to complete IXL for the week of 09/18</li>
-    </div>
-  </div>
- 
-  <div class="column">
-    <div class="card">
-      <h3>Mon. 09/25</h3>
-      <li>No School/Teacher Planning Day </li>
-      <li>Planned sight words test (TBD if will pass to another day) </li>
-    </div>
-  </div>
-  
-  </div>
- 
-<!--- Row 3 --->
- <div class="row">
-<div class="row" style="padding-bottom: 20px;"> <!-- to add more space --> 
-  <div class="column">
-    <div class="card">
-      <h3>Tues. 09/26 </h3>
-      <li> Last day to place lunch orders for the following week</li>
-    </div>
-  </div>
-  
-    <div class="column">
-    <div class="card">
-      <h3>Wed. 09/27 </h3>
-     
-    </div>
-	 </div>
-	 
-	   <div class="column">
-    <div class="card">
-      <h3>Thu. 09/28 </h3>
-     
-    </div>
-  </div>
-  
-     <div class="column">
-    <div class="card">
-      <h3>Fri. 09/29 </h3>
-      
-    </div>
-  </div> 
-
-</div>
- 
-<!--- Row 4 --->
- <div class="row">
- 
- <div class="column">
-    <div class="card">
-      <h3>Sat. 09/30 </h3>
-      
-    </div>
-  </div> 
-  
-  <div class="column">
-    <div class="card">
-      <h3>Sun. 10/01 </h3>
-      <li>  <a  target="_blank" href="docs/playdate.jpeg" download>Continental Park Play Date</a></span></li>
-	  <span>10000 sw 82 ave miami, 33156 </span>
-	   <span>Bring a sharable</span>
-    </div>
-  </div> 
-
-  <div class="column">
-    <div class="card">
-      <h3>Sun. 10/06 </h3>
-      <li> Cuban guys food truck  </li>
-    </div>
-  </div>  
- 
- 
- <!-- JavaScript to toggle the banner content -->
-<script>
-function toggleContent(id) {
-  var content = document.getElementById(id);
-  if (content.style.display === "block") {
-    content.style.display = "none";
-  } else {
-    content.style.display = "block";
-  }
-}
-</script>
-
-
-
+    <footer>
+        <p>&copy; 2024 1st Grade Class Information</p>
+    </footer>
 </body>
 </html>
