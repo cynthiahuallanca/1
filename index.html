@@ -52,14 +52,14 @@
             bottom: 0;
             width: 100%;
         }
-        .week-selector {
+        .week-selector, .download-selector {
             margin-bottom: 1em;
         }
-        .week-selector select {
+        .week-selector select, .download-selector select {
             padding: 0.5em;
             font-size: 1em;
         }
-        .week {
+        .week, .download {
             display: none;
         }
         @media (max-width: 600px) {
@@ -79,27 +79,34 @@
             // Add more week data as needed
         ];
 
-        function showWeek(week) {
-            const allWeeks = document.querySelectorAll('.week');
-            if (week === 'all') {
-                allWeeks.forEach(w => w.style.display = 'block');
+        function showSection(section, type) {
+            const allSections = document.querySelectorAll(`.${type}`);
+            if (section === 'all') {
+                allSections.forEach(s => s.style.display = 'block');
             } else {
-                allWeeks.forEach(w => w.style.display = 'none');
-                document.getElementById(week).style.display = 'block';
+                allSections.forEach(s => s.style.display = 'none');
+                document.getElementById(section).style.display = 'block';
             }
         }
 
-        function populateWeeks() {
+        function populateSections() {
             const weekSelect = document.getElementById('week');
+            const downloadSelect = document.getElementById('download');
             const weeklyInfoContainer = document.getElementById('weekly-info-container');
             const downloadsList = document.getElementById('downloads-list');
 
             weekData.reverse().forEach(week => {
-                // Add to dropdown
-                const option = document.createElement('option');
-                option.value = week.id;
-                option.textContent = `${week.id.toUpperCase()} (${week.start} - ${week.end})`;
-                weekSelect.appendChild(option);
+                // Add to Weekly Info dropdown
+                const weekOption = document.createElement('option');
+                weekOption.value = week.id;
+                weekOption.textContent = `${week.id.toUpperCase()} (${week.start} - ${week.end})`;
+                weekSelect.appendChild(weekOption);
+
+                // Add to Downloads dropdown
+                const downloadOption = document.createElement('option');
+                downloadOption.value = week.id;
+                downloadOption.textContent = `${week.id.toUpperCase()} (${week.start} - ${week.end})`;
+                downloadSelect.appendChild(downloadOption);
 
                 // Add weekly info cards
                 const weekCard = document.createElement('div');
@@ -113,8 +120,10 @@
                 `;
                 weeklyInfoContainer.appendChild(weekCard);
 
-                // Add to downloads
+                // Add to Downloads
                 const downloadItem = document.createElement('li');
+                downloadItem.className = 'download';
+                downloadItem.id = week.id;
                 downloadItem.innerHTML = `
                     <a href="path_to_file_${week.id}.pdf" download>
                         ${week.id.toUpperCase()} (${week.start} - ${week.end})
@@ -124,11 +133,18 @@
             });
 
             // Show the most recent week by default
-            showWeek(weekData[0].id);
+            showSection(weekData[0].id, 'week');
+            showSection(weekData[0].id, 'download');
         }
 
         window.onload = function() {
-            populateWeeks();
+            populateSections();
+            document.getElementById('week').onchange = function() {
+                showSection(this.value, 'week');
+            };
+            document.getElementById('download').onchange = function() {
+                showSection(this.value, 'download');
+            };
         }
     </script>
 </head>
@@ -154,7 +170,7 @@
         <h2 class="section-title">Weekly Information</h2>
         <div class="week-selector">
             <label for="week">Select Week:</label>
-            <select id="week" onchange="showWeek(this.value)">
+            <select id="week">
                 <option value="all">All Weeks</option>
             </select>
         </div>
@@ -164,6 +180,12 @@
     </div>
     <div class="container" id="downloads">
         <h2 class="section-title">Downloads</h2>
+        <div class="download-selector">
+            <label for="download">Select Week:</label>
+            <select id="download">
+                <option value="all">All Weeks</option>
+            </select>
+        </div>
         <ul id="downloads-list">
             <!-- Download links will be populated here by JavaScript -->
         </ul>
