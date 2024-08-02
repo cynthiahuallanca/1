@@ -81,10 +81,10 @@
 
         function showWeek(week) {
             const allWeeks = document.querySelectorAll('.week');
-            allWeeks.forEach(w => w.style.display = 'none');
             if (week === 'all') {
                 allWeeks.forEach(w => w.style.display = 'block');
             } else {
+                allWeeks.forEach(w => w.style.display = 'none');
                 document.getElementById(week).style.display = 'block';
             }
         }
