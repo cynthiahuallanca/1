@@ -73,6 +73,12 @@
         }
     </style>
     <script>
+        const weekData = [
+            { id: 'week1', start: '01/01', end: '01/07', tests: 'Math test on Monday, Spelling test on Wednesday.', sightWords: 'apple, banana, cherry', announcements: 'Please bring a water bottle to class every day.' },
+            { id: 'week2', start: '01/08', end: '01/14', tests: 'Science test on Tuesday, Reading test on Thursday.', sightWords: 'dog, cat, fish', announcements: 'Field trip on Friday, bring a signed permission slip.' }
+            // Add more week data as needed
+        ];
+
         function showWeek(week) {
             const allWeeks = document.querySelectorAll('.week');
             allWeeks.forEach(w => w.style.display = 'none');
@@ -82,8 +88,37 @@
                 document.getElementById(week).style.display = 'block';
             }
         }
+
+        function populateWeeks() {
+            const weekSelect = document.getElementById('week');
+            const weeklyInfoContainer = document.getElementById('weekly-info-container');
+
+            weekData.reverse().forEach(week => {
+                // Add to dropdown
+                const option = document.createElement('option');
+                option.value = week.id;
+                option.textContent = `${week.id.toUpperCase()} (${week.start} - ${week.end})`;
+                weekSelect.appendChild(option);
+
+                // Add weekly info cards
+                const weekCard = document.createElement('div');
+                weekCard.className = 'card week';
+                weekCard.id = week.id;
+                weekCard.innerHTML = `
+                    <h3>${week.id.toUpperCase()} (${week.start} - ${week.end})</h3>
+                    <p><strong>Daily Tests:</strong> ${week.tests}</p>
+                    <p><strong>Weekly Sight Words:</strong> ${week.sightWords}</p>
+                    <p><strong>Announcements:</strong> ${week.announcements}</p>
+                `;
+                weeklyInfoContainer.appendChild(weekCard);
+            });
+
+            // Show the most recent week by default
+            showWeek(weekData[0].id);
+        }
+
         window.onload = function() {
-            showWeek('week1'); // Show the current week by default
+            populateWeeks();
         }
     </script>
 </head>
@@ -110,24 +145,12 @@
         <div class="week-selector">
             <label for="week">Select Week:</label>
             <select id="week" onchange="showWeek(this.value)">
-                <option value="week1">Week 1 (01/01 - 01/07)</option>
-                <option value="week2">Week 2 (01/08 - 01/14)</option>
                 <option value="all">All Weeks</option>
             </select>
         </div>
-        <div class="card week" id="week1">
-            <h3>Week 1 (01/01 - 01/07)</h3>
-            <p><strong>Daily Tests:</strong> Math test on Monday, Spelling test on Wednesday.</p>
-            <p><strong>Weekly Sight Words:</strong> apple, banana, cherry</p>
-            <p><strong>Announcements:</strong> Please bring a water bottle to class every day.</p>
+        <div id="weekly-info-container">
+            <!-- Weekly info cards will be populated here by JavaScript -->
         </div>
-        <div class="card week" id="week2">
-            <h3>Week 2 (01/08 - 01/14)</h3>
-            <p><strong>Daily Tests:</strong> Science test on Tuesday, Reading test on Thursday.</p>
-            <p><strong>Weekly Sight Words:</strong> dog, cat, fish</p>
-            <p><strong>Announcements:</strong> Field trip on Friday, bring a signed permission slip.</p>
-        </div>
-        <!-- Add more weekly cards as needed -->
     </div>
     <div class="container" id="downloads">
         <h2 class="section-title">Downloads</h2>
