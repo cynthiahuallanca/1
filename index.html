@@ -52,6 +52,13 @@
             bottom: 0;
             width: 100%;
         }
+        .week-selector {
+            margin-bottom: 1em;
+        }
+        .week-selector select {
+            padding: 0.5em;
+            font-size: 1em;
+        }
         @media (max-width: 600px) {
             nav {
                 flex-direction: column;
@@ -62,6 +69,20 @@
             }
         }
     </style>
+    <script>
+        function showWeek(week) {
+            const allWeeks = document.querySelectorAll('.week');
+            allWeeks.forEach(w => w.style.display = 'none');
+            if (week === 'all') {
+                allWeeks.forEach(w => w.style.display = 'block');
+            } else {
+                document.getElementById(week).style.display = 'block';
+            }
+        }
+        window.onload = function() {
+            showWeek('week1'); // Show the current week by default
+        }
+    </script>
 </head>
 <body>
     <header>
@@ -69,27 +90,41 @@
     </header>
     <nav>
         <a href="#home">Home</a>
-        <a href="#weekly-info">Weekly Info</a>
         <a href="#calendar">Calendar</a>
+        <a href="#weekly-info">Weekly Info</a>
         <a href="#downloads">Downloads</a>
     </nav>
     <div class="container" id="home">
         <h2 class="section-title">Welcome</h2>
         <p>Welcome to the 1st Grade Class Information page. Here you will find all the important updates and information for the school year.</p>
     </div>
+    <div class="container" id="calendar">
+        <h2 class="section-title">Calendar</h2>
+        <iframe src="https://calendar.google.com/calendar/embed?src=314d3fa134caf94f94a3d63e6dc26d73e260d8a4c2bd6756122f292e85fae326@group.calendar.google.com&ctz=America/New_York" style="border: 0" width="100%" height="600" frameborder="0" scrolling="no"></iframe>
+    </div>
     <div class="container" id="weekly-info">
         <h2 class="section-title">Weekly Information</h2>
-        <div class="card">
+        <div class="week-selector">
+            <label for="week">Select Week:</label>
+            <select id="week" onchange="showWeek(this.value)">
+                <option value="week1">Week 1</option>
+                <option value="week2">Week 2</option>
+                <option value="all">All Weeks</option>
+            </select>
+        </div>
+        <div class="card week" id="week1">
             <h3>Week 1</h3>
             <p><strong>Daily Tests:</strong> Math test on Monday, Spelling test on Wednesday.</p>
             <p><strong>Weekly Sight Words:</strong> apple, banana, cherry</p>
             <p><strong>Announcements:</strong> Please bring a water bottle to class every day.</p>
         </div>
+        <div class="card week" id="week2" style="display:none;">
+            <h3>Week 2</h3>
+            <p><strong>Daily Tests:</strong> Science test on Tuesday, Reading test on Thursday.</p>
+            <p><strong>Weekly Sight Words:</strong> dog, cat, fish</p>
+            <p><strong>Announcements:</strong> Field trip on Friday, bring a signed permission slip.</p>
+        </div>
         <!-- Add more weekly cards as needed -->
-    </div>
-    <div class="container" id="calendar">
-        <h2 class="section-title">Calendar</h2>
-        <iframe src="https://calendar.google.com/calendar/embed?src=314d3fa134caf94f94a3d63e6dc26d73e260d8a4c2bd6756122f292e85fae326@group.calendar.google.com&ctz=America/New_York" style="border: 0" width="100%" height="600" frameborder="0" scrolling="no"></iframe>
     </div>
     <div class="container" id="downloads">
         <h2 class="section-title">Downloads</h2>
