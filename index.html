@@ -11,7 +11,6 @@
             color: #333;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
         }
         header {
             background-color: #6a1b9a;
@@ -32,7 +31,7 @@
         }
         .container {
             padding: 2em;
-            padding-bottom: 8em; /* Increased space for footer */
+            margin-bottom: 4em; /* Added margin-bottom to create space before footer */
         }
         .section-title {
             color: #6a1b9a;
@@ -53,7 +52,7 @@
             position: fixed;
             bottom: 0;
             width: 100%;
-            z-index: 100; /* Ensure footer is above other content */
+            z-index: 1;
         }
         .week-selector {
             margin-bottom: 1em;
@@ -61,8 +60,6 @@
         .week-selector select {
             padding: 0.5em;
             font-size: 1em;
-            position: relative; /* Required for dropdown positioning */
-            z-index: 10; /* Ensure dropdown is below footer */
         }
         .week {
             display: none;
@@ -79,6 +76,7 @@
     </style>
     <script>
         const weekData = [
+            { id: 'week0', start: '08/01', end: '08/18', tests: 'No tests for this period.', sightWords: 'No sight words for this period.', announcements: 'Check the athletics schedule at <a href="https://www.tnclassical.org/athletics/teams-schedules/" target="_blank">TN Classical Athletics</a>.' },
             { id: 'week1', start: '01/01', end: '01/07', tests: 'Math test on Monday, Spelling test on Wednesday.', sightWords: 'apple, banana, cherry', announcements: 'Please bring a water bottle to class every day.' },
             { id: 'week2', start: '01/08', end: '01/14', tests: 'Science test on Tuesday, Reading test on Thursday.', sightWords: 'dog, cat, fish', announcements: 'Field trip on Friday, bring a signed permission slip.' }
             // Add more week data as needed
@@ -124,9 +122,6 @@
 
         window.onload = function() {
             populateWeeks();
-            document.getElementById('week').onchange = function() {
-                showWeek(this.value);
-            };
         }
     </script>
 </head>
