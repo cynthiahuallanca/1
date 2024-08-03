@@ -76,11 +76,48 @@
     </style>
     <script>
         const weekData = [
-            { id: 'week0', start: '08/01', end: '08/18', announcements: 'Check the athletics schedule at <a href="https://www.tnclassical.org/athletics/teams-schedules/" target="_blank">TN Classical Athletics</a>.' },
+            { id: 'week0', start: '08/01', end: '08/18', tests: '', sightWords: '', announcements: 'Check the athletics schedule at <a href="https://www.tnclassical.org/athletics/teams-schedules/" target="_blank">TN Classical Athletics</a>.' },
             { id: 'week1', start: '08/19', end: '08/25', tests: '', sightWords: '', announcements: '' },
             { id: 'week2', start: '08/26', end: '09/01', tests: '', sightWords: '', announcements: '' },
-            { id: 'week3', start: '09/02', end: '09/08', tests: '', sightWords: '', announcements: '' }
-            // Add more week data as needed
+            { id: 'week3', start: '09/02', end: '09/08', tests: '', sightWords: '', announcements: '' },
+            { id: 'week4', start: '09/09', end: '09/15', tests: '', sightWords: '', announcements: '' },
+            { id: 'week5', start: '09/16', end: '09/22', tests: '', sightWords: '', announcements: '' },
+            { id: 'week6', start: '09/23', end: '09/29', tests: '', sightWords: '', announcements: '' },
+            { id: 'week7', start: '09/30', end: '10/06', tests: '', sightWords: '', announcements: '' },
+            { id: 'week8', start: '10/07', end: '10/13', tests: '', sightWords: '', announcements: '' },
+            { id: 'week9', start: '10/14', end: '10/20', tests: '', sightWords: '', announcements: '' },
+            { id: 'week10', start: '10/21', end: '10/27', tests: '', sightWords: '', announcements: '' },
+            { id: 'week11', start: '10/28', end: '11/03', tests: '', sightWords: '', announcements: '' },
+            { id: 'week12', start: '11/04', end: '11/10', tests: '', sightWords: '', announcements: '' },
+            { id: 'week13', start: '11/11', end: '11/17', tests: '', sightWords: '', announcements: '' },
+            { id: 'week14', start: '11/18', end: '11/24', tests: '', sightWords: '', announcements: '' },
+            { id: 'week15', start: '11/25', end: '12/01', tests: '', sightWords: '', announcements: '' },
+            { id: 'week16', start: '12/02', end: '12/08', tests: '', sightWords: '', announcements: '' },
+            { id: 'week17', start: '12/09', end: '12/15', tests: '', sightWords: '', announcements: '' },
+            { id: 'week18', start: '12/16', end: '12/22', tests: '', sightWords: '', announcements: '' },
+            { id: 'week19', start: '12/23', end: '12/29', tests: '', sightWords: '', announcements: '' },
+            { id: 'week20', start: '12/30', end: '01/05', tests: '', sightWords: '', announcements: '' },
+            { id: 'week21', start: '01/06', end: '01/12', tests: '', sightWords: '', announcements: '' },
+            { id: 'week22', start: '01/13', end: '01/19', tests: '', sightWords: '', announcements: '' },
+            { id: 'week23', start: '01/20', end: '01/26', tests: '', sightWords: '', announcements: '' },
+            { id: 'week24', start: '01/27', end: '02/02', tests: '', sightWords: '', announcements: '' },
+            { id: 'week25', start: '02/03', end: '02/09', tests: '', sightWords: '', announcements: '' },
+            { id: 'week26', start: '02/10', end: '02/16', tests: '', sightWords: '', announcements: '' },
+            { id: 'week27', start: '02/17', end: '02/23', tests: '', sightWords: '', announcements: '' },
+            { id: 'week28', start: '02/24', end: '03/01', tests: '', sightWords: '', announcements: '' },
+            { id: 'week29', start: '03/02', end: '03/08', tests: '', sightWords: '', announcements: '' },
+            { id: 'week30', start: '03/09', end: '03/15', tests: '', sightWords: '', announcements: '' },
+            { id: 'week31', start: '03/16', end: '03/22', tests: '', sightWords: '', announcements: '' },
+            { id: 'week32', start: '03/23', end: '03/29', tests: '', sightWords: '', announcements: '' },
+            { id: 'week33', start: '03/30', end: '04/05', tests: '', sightWords: '', announcements: '' },
+            { id: 'week34', start: '04/06', end: '04/12', tests: '', sightWords: '', announcements: '' },
+            { id: 'week35', start: '04/13', end: '04/19', tests: '', sightWords: '', announcements: '' },
+            { id: 'week36', start: '04/20', end: '04/26', tests: '', sightWords: '', announcements: '' },
+            { id: 'week37', start: '04/27', end: '05/03', tests: '', sightWords: '', announcements: '' },
+            { id: 'week38', start: '05/04', end: '05/10', tests: '', sightWords: '', announcements: '' },
+            { id: 'week39', start: '05/11', end: '05/17', tests: '', sightWords: '', announcements: '' },
+            { id: 'week40', start: '05/18', end: '05/24', tests: '', sightWords: '', announcements: '' },
+            { id: 'week41', start: '05/25', end: '05/31', tests: '', sightWords: '', announcements: '' }
         ];
 
         function showWeek(week) {
@@ -95,76 +132,4 @@
 
         function populateWeeks() {
             const weekSelect = document.getElementById('week');
-            const weeklyInfoContainer = document.getElementById('weekly-info-container');
-
-            weekData.reverse().forEach(week => {
-                // Add to dropdown
-                const option = document.createElement('option');
-                option.value = week.id;
-                option.textContent = `${week.id.toUpperCase()} (${week.start} - ${week.end})`;
-                weekSelect.appendChild(option);
-
-                // Add weekly info cards
-                const weekCard = document.createElement('div');
-                weekCard.className = 'card week';
-                weekCard.id = week.id;
-                weekCard.innerHTML = `
-                    <h3>${week.id.toUpperCase()} (${week.start} - ${week.end})</h3>
-                    <p><strong>Daily Tests:</strong> ${week.tests}</p>
-                    <p><strong>Weekly Sight Words:</strong> ${week.sightWords}</p>
-                    <p><strong>Announcements:</strong> ${week.announcements}</p>
-                `;
-                weeklyInfoContainer.appendChild(weekCard);
-            });
-
-            // Show the most recent week by default
-            showWeek(weekData[0].id);
-        }
-
-        window.onload = function() {
-            populateWeeks();
-        }
-    </script>
-</head>
-<body>
-    <header>
-        <h1>1st Grade Class Information</h1>
-    </header>
-    <nav>
-        <a href="#home">Home</a>
-        <a href="#calendar">Calendar</a>
-        <a href="#weekly-info">Weekly Info</a>
-        <a href="#lunch-menu">Lunch Menu</a>
-    </nav>
-    <div class="container" id="home">
-        <h2 class="section-title">Welcome</h2>
-        <p>Welcome to the 1st Grade Class Information page. Here you will find all the important updates and information for the school year.</p>
-    </div>
-    <div class="container" id="calendar">
-        <h2 class="section-title">Calendar</h2>
-        <iframe src="https://calendar.google.com/calendar/embed?src=314d3fa134caf94f94a3d63e6dc26d73e260d8a4c2bd6756122f292e85fae326@group.calendar.google.com&ctz=America/New_York" style="border: 0" width="100%" height="600" frameborder="0" scrolling="no"></iframe>
-    </div>
-    <div class="container" id="weekly-info">
-        <h2 class="section-title">Weekly Information</h2>
-        <div class="week-selector">
-            <label for="week">Select Week:</label>
-            <select id="week" onchange="showWeek(this.value)">
-                <option value="all">All Weeks</option>
-            </select>
-        </div>
-        <div id="weekly-info-container">
-            <!-- Weekly info cards will be populated here by JavaScript -->
-        </div>
-    </div>
-    <div class="container" id="lunch-menu">
-        <h2 class="section-title">Lunch Menu</h2>
-        <p>August and September:</p>
-        <a href="https://github.com/cynthiahuallanca/1/blob/main/docs/aug-sep.pdf" target="_blank" class="card">
-            August & September
-        </a>
-    </div>
-    <footer>
-        <p>&copy; 2024 - Private Page </p>
-    </footer>
-</body>
-</html>
+            const weeklyInfoContainer =
