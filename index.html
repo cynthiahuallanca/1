@@ -76,49 +76,55 @@
     </style>
     <script>
         const weekData = [
-        { id: 'week0', start: '08/01', end: '08/18', tests: '', sightWords: '', announcements: 'Check the athletics schedule at <a href="https://www.tnclassical.org/athletics/teams-schedules/" target="_blank">TN Classical Athletics</a>.' }
+        { id: 'week0', start: '08/01', end: '08/18', tests: '<br> - We grade quizzes and tests not just tests. <br> - The poem is predominantly learned at home. ', grammar: '<br> - Phonics Quiz weekly with 2 high frequency words that students have to learn to spell (found in the cover page of the homework packet). <br> - Most of our classwork grades will come from Handwriting (Practice!!)'
+        , math: '<br> -  Fact Fluency is what is used as our quiz grade and takes place every other Wednesday <br> - IXL is graded as a participation grade'
+        , history: '<br> - History - Week 1 will be a Quiz, Week 2 will be a Test based on the 2 weeks of History. <br> - You will have Graphic Organizers going home for studying. <br> - For the test you need to study BOTH Graphic Organizers.'
+        , science: '<br> - You have access to our Science Textbook through Clever for studying. <br> - For the test we also sent home a Benchmark Review for studying.'
+        , literature: '<br> - We will be having Literature 3 times a week. Week 1 will consist of a vocabulary Quiz and Week 2 will be a comprehension test. <br> - You will receive the vocabulary words for Literature in your weekly newsletter. <br> -  When available, I will send a link to a read aloud of the story we are working on'
+        , reading: '<br> - We switch for Reading dependent on the student academic level for that subject.'
+        , announcements: 'Check the athletics schedule at <a href="https://www.tnclassical.org/athletics/teams-schedules/" target="_blank">TN Classical Athletics</a>.' }
            
-          /* { id: 'week1', start: '08/19', end: '08/25', tests: '', sightWords: '', announcements: '' },
-           { id: 'week2', start: '08/26', end: '09/01', tests: '', sightWords: '', announcements: '' },
-            { id: 'week3', start: '09/02', end: '09/08', tests: '', sightWords: '', announcements: '' },
-            { id: 'week4', start: '09/09', end: '09/15', tests: '', sightWords: '', announcements: '' },
-            { id: 'week5', start: '09/16', end: '09/22', tests: '', sightWords: '', announcements: '' },
-            { id: 'week6', start: '09/23', end: '09/29', tests: '', sightWords: '', announcements: '' },
-            { id: 'week7', start: '09/30', end: '10/06', tests: '', sightWords: '', announcements: '' },
-            { id: 'week8', start: '10/07', end: '10/13', tests: '', sightWords: '', announcements: '' },
-            { id: 'week9', start: '10/14', end: '10/20', tests: '', sightWords: '', announcements: '' },
-            { id: 'week10', start: '10/21', end: '10/27', tests: '', sightWords: '', announcements: '' },
-            { id: 'week11', start: '10/28', end: '11/03', tests: '', sightWords: '', announcements: '' },
-            { id: 'week12', start: '11/04', end: '11/10', tests: '', sightWords: '', announcements: '' },
-            { id: 'week13', start: '11/11', end: '11/17', tests: '', sightWords: '', announcements: '' },
-            { id: 'week14', start: '11/18', end: '11/24', tests: '', sightWords: '', announcements: '' },
-            { id: 'week15', start: '11/25', end: '12/01', tests: '', sightWords: '', announcements: '' },
-            { id: 'week16', start: '12/02', end: '12/08', tests: '', sightWords: '', announcements: '' },
-            { id: 'week17', start: '12/09', end: '12/15', tests: '', sightWords: '', announcements: '' },
-            { id: 'week18', start: '12/16', end: '12/22', tests: '', sightWords: '', announcements: '' },
-            { id: 'week19', start: '12/23', end: '12/29', tests: '', sightWords: '', announcements: '' },
-            { id: 'week20', start: '12/30', end: '01/05', tests: '', sightWords: '', announcements: '' },
-            { id: 'week21', start: '01/06', end: '01/12', tests: '', sightWords: '', announcements: '' },
-            { id: 'week22', start: '01/13', end: '01/19', tests: '', sightWords: '', announcements: '' },
-            { id: 'week23', start: '01/20', end: '01/26', tests: '', sightWords: '', announcements: '' },
-            { id: 'week24', start: '01/27', end: '02/02', tests: '', sightWords: '', announcements: '' },
-            { id: 'week25', start: '02/03', end: '02/09', tests: '', sightWords: '', announcements: '' },
-            { id: 'week26', start: '02/10', end: '02/16', tests: '', sightWords: '', announcements: '' },
-            { id: 'week27', start: '02/17', end: '02/23', tests: '', sightWords: '', announcements: '' },
-            { id: 'week28', start: '02/24', end: '03/01', tests: '', sightWords: '', announcements: '' },
-            { id: 'week29', start: '03/02', end: '03/08', tests: '', sightWords: '', announcements: '' },
-            { id: 'week30', start: '03/09', end: '03/15', tests: '', sightWords: '', announcements: '' },
-            { id: 'week31', start: '03/16', end: '03/22', tests: '', sightWords: '', announcements: '' },
-            { id: 'week32', start: '03/23', end: '03/29', tests: '', sightWords: '', announcements: '' },
-            { id: 'week33', start: '03/30', end: '04/05', tests: '', sightWords: '', announcements: '' },
-            { id: 'week34', start: '04/06', end: '04/12', tests: '', sightWords: '', announcements: '' },
-            { id: 'week35', start: '04/13', end: '04/19', tests: '', sightWords: '', announcements: '' },
-            { id: 'week36', start: '04/20', end: '04/26', tests: '', sightWords: '', announcements: '' },
-            { id: 'week37', start: '04/27', end: '05/03', tests: '', sightWords: '', announcements: '' },
-            { id: 'week38', start: '05/04', end: '05/10', tests: '', sightWords: '', announcements: '' },
-            { id: 'week39', start: '05/11', end: '05/17', tests: '', sightWords: '', announcements: '' },
-            { id: 'week40', start: '05/18', end: '05/24', tests: '', sightWords: '', announcements: '' },
-            { id: 'week41', start: '05/25', end: '05/31', tests: '', sightWords: '', announcements: '' } */
+          /* { id: 'week1', start: '08/19', end: '08/25', tests: '', grammar: '', announcements: '' },
+           { id: 'week2', start: '08/26', end: '09/01', tests: '', grammar: '', announcements: '' },
+            { id: 'week3', start: '09/02', end: '09/08', tests: '', grammar: '', announcements: '' },
+            { id: 'week4', start: '09/09', end: '09/15', tests: '', grammar: '', announcements: '' },
+            { id: 'week5', start: '09/16', end: '09/22', tests: '', grammar: '', announcements: '' },
+            { id: 'week6', start: '09/23', end: '09/29', tests: '', grammar: '', announcements: '' },
+            { id: 'week7', start: '09/30', end: '10/06', tests: '', grammar: '', announcements: '' },
+            { id: 'week8', start: '10/07', end: '10/13', tests: '', grammar: '', announcements: '' },
+            { id: 'week9', start: '10/14', end: '10/20', tests: '', grammar: '', announcements: '' },
+            { id: 'week10', start: '10/21', end: '10/27', tests: '', grammar: '', announcements: '' },
+            { id: 'week11', start: '10/28', end: '11/03', tests: '', grammar: '', announcements: '' },
+            { id: 'week12', start: '11/04', end: '11/10', tests: '', grammar: '', announcements: '' },
+            { id: 'week13', start: '11/11', end: '11/17', tests: '', grammar: '', announcements: '' },
+            { id: 'week14', start: '11/18', end: '11/24', tests: '', grammar: '', announcements: '' },
+            { id: 'week15', start: '11/25', end: '12/01', tests: '', grammar: '', announcements: '' },
+            { id: 'week16', start: '12/02', end: '12/08', tests: '', grammar: '', announcements: '' },
+            { id: 'week17', start: '12/09', end: '12/15', tests: '', grammar: '', announcements: '' },
+            { id: 'week18', start: '12/16', end: '12/22', tests: '', grammar: '', announcements: '' },
+            { id: 'week19', start: '12/23', end: '12/29', tests: '', grammar: '', announcements: '' },
+            { id: 'week20', start: '12/30', end: '01/05', tests: '', grammar: '', announcements: '' },
+            { id: 'week21', start: '01/06', end: '01/12', tests: '', grammar: '', announcements: '' },
+            { id: 'week22', start: '01/13', end: '01/19', tests: '', grammar: '', announcements: '' },
+            { id: 'week23', start: '01/20', end: '01/26', tests: '', grammar: '', announcements: '' },
+            { id: 'week24', start: '01/27', end: '02/02', tests: '', grammar: '', announcements: '' },
+            { id: 'week25', start: '02/03', end: '02/09', tests: '', grammar: '', announcements: '' },
+            { id: 'week26', start: '02/10', end: '02/16', tests: '', grammar: '', announcements: '' },
+            { id: 'week27', start: '02/17', end: '02/23', tests: '', grammar: '', announcements: '' },
+            { id: 'week28', start: '02/24', end: '03/01', tests: '', grammar: '', announcements: '' },
+            { id: 'week29', start: '03/02', end: '03/08', tests: '', grammar: '', announcements: '' },
+            { id: 'week30', start: '03/09', end: '03/15', tests: '', grammar: '', announcements: '' },
+            { id: 'week31', start: '03/16', end: '03/22', tests: '', grammar: '', announcements: '' },
+            { id: 'week32', start: '03/23', end: '03/29', tests: '', grammar: '', announcements: '' },
+            { id: 'week33', start: '03/30', end: '04/05', tests: '', grammar: '', announcements: '' },
+            { id: 'week34', start: '04/06', end: '04/12', tests: '', grammar: '', announcements: '' },
+            { id: 'week35', start: '04/13', end: '04/19', tests: '', grammar: '', announcements: '' },
+            { id: 'week36', start: '04/20', end: '04/26', tests: '', grammar: '', announcements: '' },
+            { id: 'week37', start: '04/27', end: '05/03', tests: '', grammar: '', announcements: '' },
+            { id: 'week38', start: '05/04', end: '05/10', tests: '', grammar: '', announcements: '' },
+            { id: 'week39', start: '05/11', end: '05/17', tests: '', grammar: '', announcements: '' },
+            { id: 'week40', start: '05/18', end: '05/24', tests: '', grammar: '', announcements: '' },
+            { id: 'week41', start: '05/25', end: '05/31', tests: '', grammar: '', announcements: '' } */
         ];
 
         function showWeek(week) {
@@ -148,8 +154,13 @@
                 weekCard.id = week.id;
                 weekCard.innerHTML = `
                     <h3>${week.id.toUpperCase()} (${week.start} - ${week.end})</h3>
-                    <p><strong>Daily Tests:</strong> ${week.tests}</p>
-                    <p><strong>Weekly Sight Words:</strong> ${week.sightWords}</p>
+                    <p><strong>Notes:</strong> ${week.tests}</p>
+                    <p><strong>Grammar:</strong> ${week.grammar}</p>
+                    <p><strong>Math:</strong> ${week.math}</p>
+                    <p><strong>History:</strong> ${week.history}</p>
+                    <p><strong>Science:</strong> ${week.science}</p>
+                    <p><strong>Literature:</strong> ${week.literature}</p>
+                    <p><strong>Reading:</strong> ${week.reading}</p>
                     <p><strong>Announcements:</strong> ${week.announcements}</p>
                 `;
                 weeklyInfoContainer.appendChild(weekCard);
