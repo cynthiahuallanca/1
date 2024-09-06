@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Gallery</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #6a1b9a;
+            color: white;
+            padding: 1em;
+            text-align: center;
+        }
+        .gallery-container {
+            padding: 2em;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .image-card {
+            background-color: white;
+            margin: 1em;
+            padding: 1em;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            width: 200px;
+            text-align: center;
+        }
+        .image-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+        .image-date {
+            margin-top: 0.5em;
+            font-size: 0.9em;
+            color: #666;
+        }
+        footer {
+            background-color: #6a1b9a;
+            color: white;
+            text-align: center;
+            padding: 1em;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Image Gallery</h1>
+</header>
+
+<div class="gallery-container" id="gallery-container">
+    <!-- Images will be displayed here -->
+</div>
+
+<footer>
+    <p>&copy; 2024 - Image Gallery</p>
+</footer>
+
+<script>
+    const imageFolder = 'docs/';  // Folder where images are stored
+    const images = [
+        '20240101.png',
+        '20240215.png',
+        '20240323.png',
+        '20240410.png',
+        '20240520.png',
+        '20240605.png'
+    ];
+
+    function formatDateString(imageName) {
+        const year = imageName.substring(0, 4);
+        const month = imageName.substring(4, 6);
+        const day = imageName.substring(6, 8);
+        return `${year}-${month}-${day}`;
+    }
+
+    function displayImages() {
+        const galleryContainer = document.getElementById('gallery-container');
+
+        images.forEach(image => {
+            const imageCard = document.createElement('div');
+            imageCard.className = 'image-card';
+
+            const imgElement = document.createElement('img');
+            imgElement.src = imageFolder + image;
+            imgElement.alt = 'Image ' + formatDateString(image);
+
+            const imageDate = document.createElement('div');
+            imageDate.className = 'image-date';
+            imageDate.textContent = formatDateString(image);
+
+            imageCard.appendChild(imgElement);
+            imageCard.appendChild(imageDate);
+            galleryContainer.appendChild(imageCard);
+        });
+    }
+
+    window.onload = displayImages;
+</script>
+
+</body>
+</html>
